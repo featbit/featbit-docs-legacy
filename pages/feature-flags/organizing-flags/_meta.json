@@ -1,7 +1,8 @@
 {
-  "the-flags-list": "Targeting rules",
-  "copy-flags": "Copy flags",
   "projects": "Projects",
   "environments": "Environments",
+  "copy-flags": "Copy flags",
+  "clone-existing-flags": "Clone existing flags",
+  "compare-and-copy-settings": "Compare and copy settings",
   "archiving-and-deleting": "Archiving and Deleting"
 }

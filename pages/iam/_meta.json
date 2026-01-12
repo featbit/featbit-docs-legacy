@@ -2,5 +2,6 @@
   "overview": "Overview",
   "teams": "Teams",
   "groups": "Groups",
-  "policies": "Policies"
+  "policies": "Policies",
+  "rbac": "Permision Access Control (RBAC)"
 }

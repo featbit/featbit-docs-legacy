@@ -2,14 +2,41 @@
 
 You manage access in FeatBit by creating policies and attaching them to IAM identities (users, groups of users) or FeatBit resources. A policy is an object in FeatBit that, when associated with an identity or resource, defines their permissions. FeatBit evaluates these policies when an IAM member makes a request. Permissions in the policies determine whether the request is allowed or denied.
 
+## Policy algorithm
+
+**FeatBit, by default, allows no access.** Users need explicit permissions to access a feature.
+
+> Permissions are cumulative. 
+>
+> If an account member has one or more policies, then the account member’s access is defined by those policies. If the policies have conflicting permission levels, access is determined using a **deny-override rule**: if any policy explicitly denies a permission, that deny takes precedence over any allows from other policies. For example, if a member has one policy that allows access to a resource, and another policy that denies access to a resource, the member is denied to that resource.
+>
+> If a group has one or more policies, then for each account member in the group, the account member’s access is defined by both the member’s policy and the policies assigned to the group.
+>
+> For example, if a member has a Developer policy and is assigned another policy through their group, then the member will continue to have developer access to all resources through the developer policy, in addition to the access granted through their group.
+
+The algorithm for determining whether a policy allows or denies access is as follows:
+
+- If a statement within a policy explicitly denies access to a resource and action, access is denied. This statement overrides any other statement in the policy that allows access to the resource and action.
+- If a statement within a policy explicitly allows access to a resource and action, and no statement denies access, access is allowed.
+- If two different policies have conflicting permission levels, the least permissive level of access is applied.
+- Any resource or action not specifically included within a policy is **denied by default**.
+
+Statement order does not matter.
+
 ## Control level (Resource types)
 
-FeatBit policy now supports three control levels (also called resource types):
+FeatBit policy now supports the following control levels (also called resource types):
 
 * **All**, which controls if all resources are allowed or denied for members (or group of member).
-* **General**, which controls members' access permission of resource-level of Account, IAM and Project
-* **Project**, which controls members' access permission of projects.
-* **Environment**, which controls members' access permission of all environments.
+* **Workspace**, which controls members' access to the workspace (including License and SSO).
+* **Organization**, which controls members' access to the organization.
+* **IAM**, which controls members' access to IAM.
+* **Access token**, which controls members' access to access tokens.
+* **Relay Proxy**, which controls members' access to the relay proxy.
+* **Project**, which controls members' access to projects.
+* **Environment**, which controls members' access to all environments.
+* **Feature flag**, which controls members' access to feature flags.
+* **Segment**, which controls members' access to segments.
 
 ## Built-in policies
 
