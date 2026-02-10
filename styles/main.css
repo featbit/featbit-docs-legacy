@@ -15,3 +15,7 @@
     }
 }
 
+/* fix table style */
+.nx-overflow-x-scroll {
+    overflow-x: unset;
+}
