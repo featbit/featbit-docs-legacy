@@ -12,7 +12,7 @@ POST {evaluation-server-url}/api/public/insight/track
 
 ## Authentication
 
-This API requires authentication using your **environment secret key**. Include the secret key in the `Authorization` header of your request.
+This API requires authentication using your **environment secret key**. You can use either your **server-side** or **client-side** secret key. Include the secret key in the `Authorization` header of your request.
 
 > **Note:** To get the environment secret key, refer to [FAQ](../sdk/faq.mdx#how-to-get-the-environment-secret) documentation.
 
