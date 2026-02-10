@@ -2,83 +2,84 @@
 
 ## Overview
 
-The Track API allows you to send user insights data including feature flag variation views and custom metrics to FeatBit for analytics and experimentation purposes.
+The Track API allows you to send user insights data including feature flag variation results and custom metrics to FeatBit for analytics and experimentation purposes.
 
 ## API Endpoint
 
 ```
-POST /api/public/insight/track
+POST {evaluation-server-url}/api/public/insight/track
 ```
 
 ## Authentication
 
-This API requires authentication using your environment's secret key. Include the secret key in the `Authorization` header of your request.
+This API requires authentication using your **environment secret key**. Include the secret key in the `Authorization` header of your request.
 
-### Header
+> **Note:** To get the environment secret key, refer to [FAQ](../sdk/faq.mdx#how-to-get-the-environment-secret) documentation.
 
+**Example:**
 ```
-Authorization: <your-environment-secret-key>
+Authorization: your-environment-secret-key
 ```
 
-**Important:** Each environment in FeatBit has its own unique secret key. Make sure you use the correct secret key for the environment you want to track insights for.
+## Request
 
-## Request Parameters
+### Schema
 
-The request body should be a JSON array of `Insight` objects. Each insight object contains user information, feature flag variations viewed by the user, and custom metrics.
+The request body should be a JSON array of `Insight` objects. Each insight object contains user information, feature flag variations user received, and custom metrics.
 
-### Insight Object Structure
+**Insight**
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `user` | `EndUser` | Yes | The end user who triggered the insight |
-| `variations` | `Array<VariationInsight>` | No | Array of feature flag variations viewed by the user |
-| `metrics` | `Array<MetricInsight>` | No | Array of custom metrics tracked for the user |
+| Field        | Type                      | Required | Description                                    |
+| ------------ | ------------------------- | -------- | ---------------------------------------------- |
+| `user`       | `EndUser`                 | Yes      | The end user who triggered the insight         |
+| `variations` | `Array<VariationInsight>` | No       | Array of feature flag variations user received |
+| `metrics`    | `Array<MetricInsight>`    | No       | Array of custom metrics tracked for the user   |
 
-### EndUser Object
+**EndUser**
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `keyId` | `string` | Yes | Unique identifier for the user |
-| `name` | `string` | No | Display name of the user |
-| `customizedProperties` | `Array<CustomProperty>` | No | Array of custom properties for the user |
+| Field                  | Type                    | Required | Description                             |
+| ---------------------- | ----------------------- | -------- | --------------------------------------- |
+| `keyId`                | `string`                | Yes      | Unique identifier for the user          |
+| `name`                 | `string`                | No       | Display name of the user                |
+| `customizedProperties` | `Array<CustomProperty>` | No       | Array of custom properties for the user |
 
-### CustomProperty Object
+**CustomProperty**
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `name` | `string` | Yes | Property name |
-| `value` | `string` | Yes | Property value |
+| Field   | Type     | Required | Description    |
+| ------- | -------- | -------- | -------------- |
+| `name`  | `string` | Yes      | Property name  |
+| `value` | `string` | Yes      | Property value |
 
-### VariationInsight Object
+**VariationInsight**
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `featureFlagKey` | `string` | Yes | The key of the feature flag |
-| `variation` | `Variation` | Yes | The variation that was served |
-| `sendToExperiment` | `boolean` | Yes | Whether this variation should be included in experiment analysis |
-| `timestamp` | `long` | Yes | Unix timestamp in milliseconds when this variation was served |
+| Field              | Type        | Required | Description                                                       |
+| ------------------ | ----------- | -------- | ----------------------------------------------------------------- |
+| `featureFlagKey`   | `string`    | Yes      | The key of the feature flag                                       |
+| `variation`        | `Variation` | Yes      | The variation that was served                                     |
+| `sendToExperiment` | `boolean`   | Yes      | Whether this variation should be included in experiment analysis  |
+| `timestamp`        | `long`      | Yes      | Unix timestamp in **milliseconds** when this variation was served |
 
-### Variation Object
+**Variation**
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `id` | `string` | Yes | Unique identifier of the variation |
-| `value` | `string` | Yes | The value of the variation |
+| Field   | Type     | Required | Description                        |
+| ------- | -------- | -------- | ---------------------------------- |
+| `id`    | `string` | Yes      | Unique identifier of the variation |
+| `value` | `string` | Yes      | The value of the variation         |
 
-### MetricInsight Object
+**MetricInsight**
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `route` | `string` | Yes | The route or endpoint where the metric was tracked |
-| `type` | `string` | Yes | The type of metric (e.g., "CustomEvent") |
-| `eventName` | `string` | Yes | The name of the custom event |
-| `numericValue` | `float` | Yes | Numeric value associated with the metric |
-| `appType` | `string` | Yes | The type of application (e.g., "Web", "Mobile") |
-| `timestamp` | `long` | Yes | Unix timestamp in milliseconds when this metric was tracked |
+| Field          | Type     | Required | Description                                                     |
+| -------------- | -------- | -------- | --------------------------------------------------------------- |
+| `route`        | `string` | Yes      | The route or endpoint where the metric was tracked              |
+| `type`         | `string` | Yes      | The type of metric (e.g., "CustomEvent")                        |
+| `eventName`    | `string` | Yes      | The name of the custom event                                    |
+| `numericValue` | `float`  | Yes      | Numeric value associated with the metric                        |
+| `appType`      | `string` | Yes      | The type of application (e.g., "Web", "Mobile")                 |
+| `timestamp`    | `long`   | Yes      | Unix timestamp in **milliseconds** when this metric was tracked |
 
-## Request Example
+### Examples
 
-### Simple Example (Only Variations)
+#### Simple Example (Only Variations)
 
 ```json
 [
@@ -101,7 +102,7 @@ The request body should be a JSON array of `Insight` objects. Each insight objec
       {
         "featureFlagKey": "new-checkout-flow",
         "variation": {
-          "id": "variation-abc-123",
+          "id": "3c9f8e2a-5b1d-4f7c-a3e6-8d4b2c1a9f5e",
           "value": "true"
         },
         "sendToExperiment": true,
@@ -113,7 +114,7 @@ The request body should be a JSON array of `Insight` objects. Each insight objec
 ]
 ```
 
-### Complete Example (Variations and Metrics)
+#### Complete Example (Variations and Metrics)
 
 ```json
 [
@@ -136,7 +137,7 @@ The request body should be a JSON array of `Insight` objects. Each insight objec
       {
         "featureFlagKey": "recommendation-algorithm",
         "variation": {
-          "id": "var-v2-789",
+          "id": "7d2e4f3b-8c6a-4d9e-b2f7-1a5c3e8b6d4f",
           "value": "algorithm-v2"
         },
         "sendToExperiment": true,
@@ -165,7 +166,7 @@ The request body should be a JSON array of `Insight` objects. Each insight objec
 ]
 ```
 
-### Batch Example (Multiple Users)
+#### Batch Example (Multiple Users)
 
 ```json
 [
@@ -178,7 +179,7 @@ The request body should be a JSON array of `Insight` objects. Each insight objec
       {
         "featureFlagKey": "feature-x",
         "variation": {
-          "id": "var-a",
+          "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
           "value": "control"
         },
         "sendToExperiment": true,
@@ -196,7 +197,7 @@ The request body should be a JSON array of `Insight` objects. Each insight objec
       {
         "featureFlagKey": "feature-x",
         "variation": {
-          "id": "var-b",
+          "id": "f9e8d7c6-b5a4-4938-8271-6a5b4c3d2e1f",
           "value": "treatment"
         },
         "sendToExperiment": true,
@@ -210,47 +211,23 @@ The request body should be a JSON array of `Insight` objects. Each insight objec
 
 ## Response
 
-### Success Response
-
-**Status Code:** `200 OK`
-
-**Response Body:** Empty
+### 200 OK
 
 The API returns a `200 OK` status with no response body when insights are successfully received and queued for processing.
 
-### Error Responses
-
-#### Unauthorized
-
-**Status Code:** `401 Unauthorized`
-
-**Response Body:** Empty
+### 401 Unauthorized
 
 This error occurs when:
+
 - The `Authorization` header is missing
 - The environment secret key is invalid
-- The secret key doesn't match any existing environment
 
-#### Bad Request
-
-**Status Code:** `400 Bad Request`
+### 400 Bad Request
 
 This may occur when:
 - The request body is not valid JSON
 - Required fields are missing
 - Data types don't match the expected schema
-
-## Implementation Notes
-
-1. **Validation**: The API validates each insight before processing. Invalid insights (e.g., missing user or invalid user.keyId) are silently ignored, and the API still returns `200 OK` for valid insights in the batch.
-
-2. **Deduplication**: User data is deduplicated using a 3-minute cache. If the same user (identified by `envId:keyId`) is sent multiple times within 3 minutes, only the first occurrence will create an end user message.
-
-3. **Asynchronous Processing**: Insights are published to message queues for asynchronous processing, so the API responds quickly even when sending large batches.
-
-4. **Timestamp Format**: All timestamps must be in Unix milliseconds (not seconds). For example, January 1, 2024, 00:00:00 UTC = `1704067200000`.
-
-5. **Batching**: You can send up to multiple insights in a single request. This is more efficient than making individual requests for each insight.
 
 ## Common Use Cases
 
@@ -322,7 +299,7 @@ Track both variation views and metrics in the same request:
       {
         "featureFlagKey": "checkout-flow",
         "variation": {
-          "id": "var-new",
+          "id": "b8c7d6e5-f4a3-4b92-8c1d-7e6f5a4b3c2d",
           "value": "new-flow"
         },
         "sendToExperiment": true,
@@ -342,207 +319,6 @@ Track both variation views and metrics in the same request:
   }
 ]
 ```
-
-## Code Examples
-
-### cURL
-
-```bash
-curl -X POST https://your-featbit-server.com/api/public/insight/track \
-  -H "Content-Type: application/json" \
-  -H "Authorization: your-environment-secret-key" \
-  -d '[
-    {
-      "user": {
-        "keyId": "user-123",
-        "name": "John Doe"
-      },
-      "variations": [
-        {
-          "featureFlagKey": "new-feature",
-          "variation": {
-            "id": "var-123",
-            "value": "true"
-          },
-          "sendToExperiment": true,
-          "timestamp": 1704067200000
-        }
-      ],
-      "metrics": []
-    }
-  ]'
-```
-
-### JavaScript (Fetch API)
-
-```javascript
-const insights = [
-  {
-    user: {
-      keyId: "user-123",
-      name: "John Doe",
-      customizedProperties: [
-        { name: "email", value: "john@example.com" }
-      ]
-    },
-    variations: [
-      {
-        featureFlagKey: "new-feature",
-        variation: {
-          id: "var-123",
-          value: "true"
-        },
-        sendToExperiment: true,
-        timestamp: Date.now()
-      }
-    ],
-    metrics: []
-  }
-];
-
-fetch('https://your-featbit-server.com/api/public/insight/track', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'your-environment-secret-key'
-  },
-  body: JSON.stringify(insights)
-})
-  .then(response => {
-    if (response.ok) {
-      console.log('Insights tracked successfully');
-    } else if (response.status === 401) {
-      console.error('Unauthorized: Check your environment secret key');
-    }
-  })
-  .catch(error => console.error('Error:', error));
-```
-
-### Python
-
-```python
-import requests
-import time
-
-url = "https://your-featbit-server.com/api/public/insight/track"
-headers = {
-    "Content-Type": "application/json",
-    "Authorization": "your-environment-secret-key"
-}
-
-insights = [
-    {
-        "user": {
-            "keyId": "user-123",
-            "name": "John Doe",
-            "customizedProperties": [
-                {"name": "email", "value": "john@example.com"}
-            ]
-        },
-        "variations": [
-            {
-                "featureFlagKey": "new-feature",
-                "variation": {
-                    "id": "var-123",
-                    "value": "true"
-                },
-                "sendToExperiment": True,
-                "timestamp": int(time.time() * 1000)
-            }
-        ],
-        "metrics": []
-    }
-]
-
-response = requests.post(url, json=insights, headers=headers)
-
-if response.status_code == 200:
-    print("Insights tracked successfully")
-elif response.status_code == 401:
-    print("Unauthorized: Check your environment secret key")
-else:
-    print(f"Error: {response.status_code}")
-```
-
-### C# (.NET)
-
-```csharp
-using System.Net.Http;
-using System.Text;
-using System.Text.Json;
-
-var client = new HttpClient();
-client.DefaultRequestHeaders.Add("Authorization", "your-environment-secret-key");
-
-var insights = new[]
-{
-    new
-    {
-        user = new
-        {
-            keyId = "user-123",
-            name = "John Doe",
-            customizedProperties = new[]
-            {
-                new { name = "email", value = "john@example.com" }
-            }
-        },
-        variations = new[]
-        {
-            new
-            {
-                featureFlagKey = "new-feature",
-                variation = new
-                {
-                    id = "var-123",
-                    value = "true"
-                },
-                sendToExperiment = true,
-                timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
-            }
-        },
-        metrics = Array.Empty<object>()
-    }
-};
-
-var json = JsonSerializer.Serialize(insights);
-var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-var response = await client.PostAsync(
-    "https://your-featbit-server.com/api/public/insight/track",
-    content
-);
-
-if (response.IsSuccessStatusCode)
-{
-    Console.WriteLine("Insights tracked successfully");
-}
-else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-{
-    Console.WriteLine("Unauthorized: Check your environment secret key");
-}
-```
-
-## Troubleshooting
-
-### 401 Unauthorized Error
-
-- Verify that you're using the correct environment secret key
-- Check that the secret key is included in the `Authorization` header
-- Ensure the environment exists and is active
-
-### No Data Appearing in Analytics
-
-- Verify that timestamps are in milliseconds (not seconds)
-- Check that user.keyId is not empty
-- Ensure insights are valid (use the validation logic: user must exist and user.keyId must not be empty)
-- Check the feature flag key matches exactly with your configured flags
-
-### Performance Issues
-
-- Consider batching multiple insights into a single request
-- Avoid sending duplicate insights within the 3-minute deduplication window
-- Send insights asynchronously from your main application flow
 
 ## Best Practices
 

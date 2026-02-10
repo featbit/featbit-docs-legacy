@@ -2,7 +2,7 @@
 
 This API allows you to evaluate feature flag variations for a user against one or more feature flags in your environment.
 
-## API Route
+## API Endpoint
 
 ```
 POST {evaluation-server-url}/api/public/featureflag/evaluate
