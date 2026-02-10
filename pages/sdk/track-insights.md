@@ -57,7 +57,7 @@ The request body should be a JSON array of `Insight` objects. Each insight objec
 | `featureFlagKey`   | `string`    | Yes      | The key of the feature flag                                       |
 | `variation`        | `Variation` | Yes      | The variation that was served                                     |
 | `sendToExperiment` | `boolean`   | Yes      | Whether this variation should be included in experiment analysis  |
-| `timestamp`        | `long`      | Yes      | Unix timestamp in **milliseconds** when this variation was served |
+| `timestamp`        | `number`    | Yes      | Unix timestamp in **milliseconds** when this variation was served |
 
 **Variation**
 
