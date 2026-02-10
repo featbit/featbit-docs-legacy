@@ -1,8 +1,6 @@
 # Track Insights API
 
-## Overview
-
-The Track API allows you to send user insights data including feature flag variation results and custom metrics to FeatBit for analytics and experimentation purposes.
+This API allows you to send user insights data including feature flag variation results and custom metrics to FeatBit for analytics and experimentation purposes.
 
 ## API Endpoint
 

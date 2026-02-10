@@ -51,7 +51,7 @@ The request body should be a JSON object with the following structure:
 
 | Property        | Type       | Default | Description                                                 |
 | --------------- | ---------- | ------- | ----------------------------------------------------------- |
-| `tagFilterMode` | `string`   | `"and"` | How to combine tag filters. Valid values: `"and"` or `"or"` |
+| `tagFilterMode` | `string`   | `"and"` | Determines how multiple tags are matched. Use `"and"` to return only flags that have **ALL** specified tags, or `"or"` to return flags that have **ANY** of the specified tags |
 | `tags`          | `string[]` | `[]`    | Array of tags to filter feature flags                       |
 | `keys`          | `string[]` | `[]`    | Array of specific feature flag keys to evaluate             |
 
