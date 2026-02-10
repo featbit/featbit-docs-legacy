@@ -1,4 +1,4 @@
-# Track API Documentation
+# Track Insights API
 
 ## Overview
 
