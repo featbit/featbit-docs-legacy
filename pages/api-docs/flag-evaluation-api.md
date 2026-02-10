@@ -34,18 +34,18 @@ The request body should be a JSON object with the following structure:
 
 **EndUser**
 
-| Property               | Type     | Required | Description                                        |
-| ---------------------- | -------- | -------- | -------------------------------------------------- |
-| `keyId`                | `string` | Yes      | Unique identifier for the user in your environment |
-| `name`                 | `string` | No       | Display name for the user                          |
-| `customizedProperties` | `array`  | No       | Array of custom properties for user targeting      |
+| Property               | Type                    | Required | Description                                        |
+| ---------------------- | ----------------------- | -------- | -------------------------------------------------- |
+| `keyId`                | `string`                | Yes      | Unique identifier for the user in your environment |
+| `name`                 | `string`                | No       | Display name for the user                          |
+| `customizedProperties` | `Array<CustomProperty>` | No       | Array of custom properties for user targeting      |
 
-**CustomizedProperty**
+**CustomProperty**
 
-| Property | Type     | Description                  |
-| -------- | -------- | ---------------------------- |
-| `name`   | `string` | Name of the custom property  |
-| `value`  | `string` | Value of the custom property |
+| Field   | Type     | Required | Description    |
+| ------- | -------- | -------- | -------------- |
+| `name`  | `string` | Yes      | Property name  |
+| `value` | `string` | Yes      | Property value |
 
 **FeatureFlagFilter**
 

@@ -73,9 +73,9 @@ The request body should be a JSON array of `Insight` objects. Each insight objec
 | `route`        | `string` | Yes      | The route or endpoint where the metric was tracked              |
 | `type`         | `string` | Yes      | The type of metric (e.g., "CustomEvent")                        |
 | `eventName`    | `string` | Yes      | The name of the custom event                                    |
-| `numericValue` | `float`  | Yes      | Numeric value associated with the metric                        |
+| `numericValue` | `number` | Yes      | Numeric value associated with the metric                        |
 | `appType`      | `string` | Yes      | The type of application (e.g., "Web", "Mobile")                 |
-| `timestamp`    | `long`   | Yes      | Unix timestamp in **milliseconds** when this metric was tracked |
+| `timestamp`    | `number` | Yes      | Unix timestamp in **milliseconds** when this metric was tracked |
 
 ### Examples
 
