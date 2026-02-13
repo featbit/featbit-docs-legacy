@@ -104,7 +104,7 @@ The API returns an array of evaluation results, one for each matching feature fl
 | `type`   | `string` | The variation type (e.g., "string", "boolean", "number", "json") |
 | `value`  | `string` | The variation value                                              |
 | `matchReason` | `string` | Explanation of why this variation was selected. Possible values: <br/>• `"flag disabled"` - The flag is disabled<br/>• `"targeted"` - The user is targeted individually<br/>• `"{rule name}"` - The user matched a specific rule (returns the rule name)<br/>• `"default"` - The user matched the default rule |
-| `sendToExperiment` | `boolean` | Indicates whether this variation should be included in experiment analysis |
+| `sendToExperiment` | `boolean` | Indicates whether this variation should be included in experiment analysis. Needed when tracking insights. |
 
 ### Example
 
