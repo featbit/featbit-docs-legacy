@@ -2,24 +2,46 @@ import { Callout } from 'nextra/components'
 
 # Retrieve feature flags with API
 
-The Evaluation Server offers two APIs that allow you to retrieve feature flags for both client-side and server-side sdks, specific to the desired environment.
+The Evaluation Server offers two APIs that allow you to retrieve feature flags for both client-side and server-side SDKs, specific to the given environment.
 
-The differences between client side and server side SDKs are:
-
-* Client side SDK is for single user but Server side SDK is for multiple users
-* Client side SDK relies on the Evaluation Server to evaluate all the flags while Server side SDK evaluates the flags locally
+* **Client-side API:** For single devices used by individual users. Client-side requests retrieve all **evaluated feature flag values for a specific user**. The server performs all flag evaluations and returns only the results.
+* **Server-side API:** For services that handle multiple users. Server-side requests return all **raw feature flags and segments data**. The server-side SDK then uses this data to evaluate feature flag values locally for each given user.
 
 <Callout type="info" emoji="ℹ️">
-Please note that you need to replace `{Host}` in the API requests with the appropriate host URL for your environment. `{Host}` can be the evaluation server host or the FeatBit Agent host, both of them provides the same API.
+Please note that you need to replace `{Host}` in the API requests with the appropriate host URL for your environment. `{Host}` can be the evaluation server host or the FeatBit Agent host, both of them provide the same API.
 </Callout>
+
+## Polling With Timestamp Parameter
+
+Both APIs support an optional `timestamp` query parameter that enables efficient polling for feature flag updates. When provided, the server will only return flags that have been modified after the specified timestamp. This helps reduce bandwidth and processing overhead by avoiding unnecessary data transfers when flags haven't changed.
+
+**How it works:**
+
+1. Make an initial request without the `timestamp` parameter to get all feature flags
+2. Store the **max** `timestamp` value from the response
+3. In subsequent polling requests, include the stored timestamp as a query parameter: `?timestamp={value}`
+4. The server will only return data modified after that timestamp
+5. After each response, recompute and update your stored timestamp with the latest value from each response
+
+**Where to read the timestamp from:**
+
+* **Client-side requests:** Extract the `timestamp` field from each feature flag object in the `data.featureFlags` array. Take the **maximum** value from all timestamps.
+* **Server-side requests:** Extract the `updatedAt` field from all objects in both the `data.featureFlags` and `data.segments` arrays. Find the **latest** among them and convert it to milliseconds.
+
+**Benefits:**
+
+* Reduced network bandwidth usage
+* Lower server load
+* Faster response times when no changes have occurred
 
 ## Client Side
 
-For client-side requests, provide the client environment secret in the `Authorization` header.
+For client-side requests, provide the **client environment secret** in the `Authorization` header.
 
 **Request**
 
 ```bash
+# Initial request (no timestamp)
 curl -X POST {Host}/api/public/sdk/client/latest-all \
 -H 'Content-Type: application/json' \
 -H 'Authorization: client-env-secret' \
@@ -32,7 +54,26 @@ curl -X POST {Host}/api/public/sdk/client/latest-all \
             "value": "high"
         },
         {
-            "name": "localtion",
+            "name": "location",
+            "value": "us"
+        }
+    ]
+}'
+
+# Subsequent polling request (with timestamp in milliseconds)
+curl -X POST '{Host}/api/public/sdk/client/latest-all?timestamp=1712755780494' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: client-env-secret' \
+-d '{
+    "keyId": "bot-id",
+    "name": "bot",
+    "customizedProperties": [
+        {
+            "name": "level",
+            "value": "high"
+        },
+        {
+            "name": "location",
             "value": "us"
         }
     ]
@@ -74,12 +115,16 @@ curl -X POST {Host}/api/public/sdk/client/latest-all \
 
 ## Server Side
 
-For server-side requests, provide the server environment secret in the `Authorization` header.
+For server-side requests, provide the **server environment secret** in the `Authorization` header.
 
 **Request**
 
 ```bash
+# Initial request (no timestamp)
 curl -H "Authorization: server-env-secret" {Host}/api/public/sdk/server/latest-all
+
+# Subsequent polling request (with timestamp in milliseconds)
+curl -H "Authorization: server-env-secret" '{Host}/api/public/sdk/server/latest-all?timestamp=1712755780494'
 ```
 
 **Response**

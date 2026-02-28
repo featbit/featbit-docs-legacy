@@ -3,5 +3,6 @@
   "teams": "Teams",
   "groups": "Groups",
   "policies": "Policies",
-  "rbac": "Permision Access Control (RBAC)"
+  "rbac": "Permision Access Control (RBAC)",
+  "faq": "FAQ"
 }
