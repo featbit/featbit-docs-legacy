@@ -346,4 +346,4 @@ By following the above steps, we have successfully created and assigned policies
 
 Please remember to regularly review and update the policies as needed to ensure that they continue to meet the evolving needs of your organization.
 
-For any unexpected behaviors or issues, please join our [slack community](https://featbit.com/community) or contact us by email at [contact@featbit.co](mailto:contact@featbit.co)
+For any unexpected behaviors or issues, please join our [Discord community](https://discord.gg/ytK9xGJSw3) or contact us by email at [contact@featbit.co](mailto:contact@featbit.co)
