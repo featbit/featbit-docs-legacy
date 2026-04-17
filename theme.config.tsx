@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import { useConfig } from 'nextra-theme-docs'
 import Image from 'next/image';
-import slackLogo from './public/slack-new-logo.svg';
+import discordLogo from './public/discord-logo.svg';
 import LogoComponent from "./components/logo";
 
 const config: DocsThemeConfig = {
@@ -80,8 +80,8 @@ const config: DocsThemeConfig = {
     link: 'https://github.com/featbit/featbit',
   },
   chat: {
-    icon:  <Image priority src={slackLogo} width={24} alt="FeatBit Slack" height={24} />,
-    link: 'https://join.slack.com/t/featbit/shared_invite/zt-1ew5e2vbb-x6Apan1xZOaYMnFzqZkGNQ',
+    icon:  <Image priority src={discordLogo} width={24} alt="FeatBit Discord" height={24} />,
+    link: 'https://discord.gg/ytK9xGJSw3',
   },
   sidebar: {
     titleComponent({ title, type }) {
