@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://docs.featbit.co/sitemap.xml
+LLMS: https://docs.featbit.co/llms.txt
