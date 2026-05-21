@@ -1,0 +1,62 @@
+# FeatBit Documentation
+
+FeatBit documentation covers setup, SDK integration, APIs, feature flag operations, experimentation, identity, observability, webhooks, and self-hosted deployment.
+
+Core documentation:
+- https://docs.featbit.co/
+- https://docs.featbit.co/getting-started/create-two-feature-flags
+- https://docs.featbit.co/getting-started/connect-an-sdk
+- https://docs.featbit.co/getting-started/how-to-guides/targeted-progressive-delivery
+- https://docs.featbit.co/getting-started/how-to-guides/ab-testing
+
+SDK and API:
+- https://docs.featbit.co/sdk/overview
+- https://docs.featbit.co/sdk/faq
+- https://docs.featbit.co/sdk/retrieve-feature-flags
+- https://docs.featbit.co/api-docs/overview
+- https://docs.featbit.co/api-docs/using-featbit-rest-api
+- https://docs.featbit.co/api-docs/flag-evaluation-api
+- https://docs.featbit.co/api-docs/track-insights-api
+
+SDK source repositories:
+- https://github.com/featbit/featbit-js-client-sdk
+- https://github.com/featbit/featbit-react-client-sdk
+- https://github.com/featbit/featbit-react-native-sdk
+- https://github.com/featbit/featbit-node-server-sdk
+- https://github.com/featbit/featbit-dotnet-sdk
+- https://github.com/featbit/featbit-dotnet-client-sdk
+- https://github.com/featbit/featbit-java-sdk
+- https://github.com/featbit/featbit-python-sdk
+- https://github.com/featbit/featbit-go-sdk
+- https://github.com/featbit/featbit-samples
+
+OpenFeature providers:
+- https://github.com/featbit/openfeature-provider-js-client
+- https://github.com/featbit/openfeature-provider-node-server
+- https://github.com/featbit/openfeature-provider-dotnet-server
+- https://github.com/featbit/featbit-openfeature-provider-java-server
+
+Installation and operations:
+- https://docs.featbit.co/installation/deployment-options
+- https://docs.featbit.co/installation/docker-compose
+- https://docs.featbit.co/installation/use-your-own-infrastructure
+- https://docs.featbit.co/installation/terraform-aws
+- https://docs.featbit.co/tech-stack/overview
+- https://docs.featbit.co/tech-stack/infrastructure-components
+- https://docs.featbit.co/relay-proxy/overview
+
+Enterprise controls:
+- https://docs.featbit.co/iam/overview
+- https://docs.featbit.co/iam/rbac
+- https://docs.featbit.co/iam/policies
+- https://docs.featbit.co/integrations/single-sign-on/single-sign-on
+- https://docs.featbit.co/integrations/api-access-tokens
+
+Integrations and observability:
+- https://docs.featbit.co/integrations/webhooks
+- https://docs.featbit.co/integrations/observability/opentelemetry
+- https://docs.featbit.co/integrations/observability/newrelic
+- https://docs.featbit.co/integrations/observability/grafana
+- https://docs.featbit.co/integrations/observability/datadog
+
+Use these pages as the authoritative source for technical implementation details.
