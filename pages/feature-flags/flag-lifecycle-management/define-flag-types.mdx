@@ -1,0 +1,20 @@
+# Define flag types
+
+## Overview
+
+Define the types of feature flags your project uses before asking a coding agent to create, review, or clean up flags. The flag type tells the agent what the flag is for, how long it should normally live, and what evidence is needed before it can be removed.
+
+## Typical flag types
+
+| Flag type | Purpose | Lifecycle expectation |
+| --- | --- | --- |
+| Release flag | Gradually release a new feature or code path | Temporary |
+| Experiment flag | Compare variants for a product hypothesis | Temporary |
+| Operational flag | Pause, throttle, or bypass behavior during incidents | Temporary or reviewed periodically |
+| Permission or entitlement flag | Control access by plan, tenant, or user group | Long-lived business rule |
+| Migration flag | Move traffic between old and new infrastructure or data paths | Temporary |
+| Configuration flag | Tune behavior without redeployment | Long-lived, but reviewed periodically |
+
+## Agent guidance
+
+Your project-level agent skill or repository instruction should define which flag types are allowed and what metadata each type requires.

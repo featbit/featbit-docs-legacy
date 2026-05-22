@@ -1,0 +1,18 @@
+# Manage flag references with coding agents
+
+## Overview
+
+Feature flag references live in code, tests, configuration, documentation, and sometimes analytics or experimentation setup. Coding agents can help keep those references visible.
+
+## What to track
+
+- SDK evaluation calls.
+- Internal feature flag wrapper calls.
+- Fallback values.
+- Tests that depend on the flag.
+- Documentation or runbooks that mention the flag.
+- Experiment or metric definitions linked to the flag.
+
+## Agent role
+
+The coding agent can build a reference map for a flag, explain the affected code paths, and warn when a change would affect historical release behavior.

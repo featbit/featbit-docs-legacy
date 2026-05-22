@@ -1,0 +1,11 @@
+# Set cleanup expectations
+
+## Overview
+
+Every feature flag should have an expected review or cleanup point. This helps coding agents distinguish between active flags, long-lived business rules, and stale flags that may need removal.
+
+## Recommended practice
+
+Set a default cleanup warning period for temporary flag types. For example, release flags and experiment flags can be reviewed 30 days after the feature reaches full rollout or the experiment decision is recorded.
+
+Long-lived flags should still have a review cadence. They may not be deleted quickly, but they should be checked to confirm they still represent an intentional business or operational rule.

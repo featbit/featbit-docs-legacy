@@ -1,0 +1,20 @@
+# Create flags with agent guidance
+
+## Overview
+
+When a developer adds a new feature flag, the coding agent should apply the project's flagging conventions instead of inventing a new pattern each time.
+
+## What the agent should check
+
+- The flag key follows the project's naming convention.
+- The flag has a type, owner, purpose, and expected review point.
+- The fallback value is intentional.
+- The flag is created in the correct project and environment.
+- The flag is linked to the relevant release, experiment, or operational decision.
+
+## Common mistakes to avoid
+
+- Using one flag for multiple unrelated decisions.
+- Adding a temporary release flag for a permanent entitlement rule.
+- Creating a flag without a cleanup expectation.
+- Creating a flag in FeatBit but not documenting how it should be used in code.

@@ -1,0 +1,13 @@
+{
+  "define-flag-types": "Define flag types",
+  "set-cleanup-expectations": "Set cleanup expectations",
+  "create-flags-with-agent-guidance": "Create flags with agent guidance",
+  "implement-feature-flags": "Implement feature flags",
+  "control-exposure-and-release-decisions": "Control exposure and release decisions",
+  "monitor-release-health": "Monitor release health",
+  "capture-release-learning": "Capture release learning",
+  "detect-stale-feature-flags": "Detect stale feature flags",
+  "clean-up-feature-flags-with-coding-agents": "Clean up feature flags with coding agents",
+  "manage-flag-references-with-coding-agents": "Manage flag references with coding agents",
+  "review-flag-audit-history": "Review flag audit history"
+}

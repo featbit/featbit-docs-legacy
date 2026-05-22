@@ -1,0 +1,18 @@
+# Detect stale feature flags
+
+## Overview
+
+A stale feature flag is a flag that no longer serves an active release, experiment, operational control, migration, configuration, or business rule. Stale flags increase code complexity and make future releases harder to review.
+
+## Signals
+
+- The flag serves only one variation.
+- The feature has reached full rollout.
+- The experiment decision has already been made.
+- The flag has not been requested recently.
+- The owner or purpose is unclear.
+- The code path behind the flag no longer maps to an active requirement.
+
+## Agent role
+
+The coding agent can combine repository search with FeatBit flag state to identify flags that should be reviewed for cleanup.

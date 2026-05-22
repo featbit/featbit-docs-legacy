@@ -1,0 +1,17 @@
+# Implement feature flags
+
+## Overview
+
+Feature flag implementation should follow the same conventions across the repository. Coding agents can help apply those conventions, but they need clear project-level guidance.
+
+## Implementation checks
+
+- Use the approved SDK or internal feature flag wrapper.
+- Keep the flag check close to the behavior it controls.
+- Avoid spreading the same flag across unrelated modules.
+- Add tests for enabled and disabled behavior when the flag changes execution paths.
+- Keep fallback behavior explicit and stable.
+
+## Review focus
+
+Reviewers should check whether the flag is reversible, whether the disabled path still works, and whether the code can be cleaned up safely after the flag reaches its end state.

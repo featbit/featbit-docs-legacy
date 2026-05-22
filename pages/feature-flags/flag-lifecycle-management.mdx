@@ -1,0 +1,104 @@
+import { Callout } from 'nextra/components'
+
+# Flag lifecycle management
+
+## Overview
+
+Modern coding agents such as Codex, Claude Code, and GitHub Copilot are becoming part of everyday software development. FeatBit's position is that feature flag lifecycle management should use these coding agents as active collaborators, not only as code completion tools.
+
+A feature flag lifecycle is more than creating a flag and deleting it later. It should connect the flag's purpose, expected lifetime, release evidence, code references, audit history, and cleanup plan. Coding agents can help teams keep that lifecycle visible inside the codebase and connect it with FeatBit data.
+
+Agent-assisted flag lifecycle management has three foundations:
+
+1. Define feature flag types based on your team's needs.
+2. Assign each flag type a default cleanup expectation.
+3. Use coding agents, project-level agent skills, and FeatBit data to add, update, clean up, and review flags continuously.
+
+This gives the team a clear contract: every flag has a purpose, an owner, a review point, and an expected end state.
+
+<Callout type="info">
+  This page is the lifecycle map. Each step links to a dedicated page where the practice can be expanded with examples, CLI usage, coding-agent prompts, and review checklists.
+</Callout>
+
+## Lifecycle steps
+
+### 1. Define flag types
+
+Define the types of feature flags your project uses, such as release flags, experiment flags, operational flags, permission flags, migration flags, and configuration flags.
+
+Read more: [Define flag types](flag-lifecycle-management/define-flag-types)
+
+### 2. Set cleanup expectations
+
+Set the default review and cleanup window for each flag type. For example, release and experiment flags can use a 30-day cleanup warning period after rollout completion or experiment decision.
+
+Read more: [Set cleanup expectations](flag-lifecycle-management/set-cleanup-expectations)
+
+### 3. Create flags with agent guidance
+
+Use project-level agent skills or repository instructions to guide how new flags should be named, owned, documented, and reviewed.
+
+Read more: [Create flags with agent guidance](flag-lifecycle-management/create-flags-with-agent-guidance)
+
+### 4. Implement feature flags
+
+Ask the coding agent to apply the project's feature flag implementation conventions, add tests for enabled and disabled behavior, and avoid spreading one flag across unrelated modules.
+
+Read more: [Implement feature flags](flag-lifecycle-management/implement-feature-flags)
+
+### 5. Control exposure and release decisions
+
+Coordinate flag targeting, rollout percentage, protected audiences, and decision categories such as continue, pause, rollback, or iterate.
+
+Read more: [Control exposure and release decisions](flag-lifecycle-management/control-exposure-and-release-decisions)
+
+### 6. Monitor release health
+
+Connect flag exposure with FeatBit Dashboard, Rich Webhook, Experimentation, and observability or APM tools so release health can be evaluated with evidence.
+
+Read more: [Monitor release health](flag-lifecycle-management/monitor-release-health)
+
+### 7. Capture release learning
+
+Summarize what changed, who was exposed, what happened, and what the next iteration should be. The result should feed the next release decision instead of being lost in chat or pull request history.
+
+Read more: [Capture release learning](flag-lifecycle-management/capture-release-learning)
+
+### 8. Detect stale feature flags
+
+Identify flags that may no longer serve an active release, experiment, operation, migration, configuration, or business rule.
+
+Read more: [Detect stale feature flags](flag-lifecycle-management/detect-stale-feature-flags)
+
+### 9. Clean up feature flags with coding agents
+
+Use coding agents to remove finished flags from code, simplify permanent code paths, update tests, and prepare cleanup pull requests.
+
+Read more: [Clean up feature flags with coding agents](flag-lifecycle-management/clean-up-feature-flags-with-coding-agents)
+
+### 10. Manage flag references with coding agents
+
+Track where flags are used across the codebase, understand fallback values, and keep code references aligned with FeatBit state.
+
+Read more: [Manage flag references with coding agents](flag-lifecycle-management/manage-flag-references-with-coding-agents)
+
+### 11. Review flag audit history
+
+Use FeatBit audit history during code review to understand whether a code change affects a historical release decision, an active experiment, or a cleanup task.
+
+Read more: [Review flag audit history](flag-lifecycle-management/review-flag-audit-history)
+
+## Recommended tooling
+
+The best implementation depends on the team's development environment, but the recommended toolchain has three parts:
+
+- The coding agent your team already uses, such as Codex, Claude Code, or GitHub Copilot.
+- Project-level agent skills or repository instructions that encode your flag naming, ownership, cleanup, and review rules.
+- FeatBit CLI, so the coding agent can retrieve feature flag details, audit history, rollout state, and experiment context directly from FeatBit.
+
+With these pieces in place, the coding agent can work from both sides of the lifecycle: it can inspect code references in the repository and inspect flag state in FeatBit.
+
+## Related FeatBit pages
+
+- [Archiving and Deleting](organizing-flags/archiving-and-deleting) explains the FeatBit product flow for archiving and deleting flags.
+- [Audit log](audit-log) explains how to inspect historical flag changes.

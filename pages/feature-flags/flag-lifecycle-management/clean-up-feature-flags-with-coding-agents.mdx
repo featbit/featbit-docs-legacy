@@ -1,0 +1,18 @@
+# Clean up feature flags with coding agents
+
+## Overview
+
+Coding agents can help remove finished feature flags from the codebase, but cleanup should be driven by FeatBit state and release decisions.
+
+## Cleanup checks
+
+- Confirm the flag is ready to remove.
+- Identify all code references.
+- Decide which variation or branch becomes the permanent behavior.
+- Remove obsolete fallback logic.
+- Update or delete tests that only existed for the temporary flag.
+- Prepare a focused pull request for review.
+
+## Review focus
+
+Before merging cleanup, reviewers should confirm that the flag is no longer needed in FeatBit, the permanent behavior is correct, and the code change does not erase useful release history.
