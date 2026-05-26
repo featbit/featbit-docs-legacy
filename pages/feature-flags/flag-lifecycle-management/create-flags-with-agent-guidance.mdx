@@ -59,50 +59,8 @@ The following example shows Codex receiving the instruction and completing the C
 
 Start by installing and configuring FeatBit MCP. For the latest setup instructions, refer to [featbit/featbit-mcp](https://github.com/featbit/featbit-mcp).
 
-Use MCP when your coding agent can call MCP tools directly. This path is useful when the agent environment is already connected to FeatBit and can create the flag without asking you to manually translate the request into a CLI command.
+After FeatBit MCP is configured, the workflow is similar to using FeatBit CLI: describe the flag you need, give the project and environment context, and let the coding agent call FeatBit MCP.
 
-### Create a flag with the agent
+As with the CLI workflow, FeatBit recommends keeping a small project-level skill or reference, such as `.agents/feature-flag/skill.md` or `references/featbit-mcp.md`, so the team uses the same project keys, environment keys, naming rules, duplicate-check rule, and required lifecycle fields every time.
 
-Ask the coding agent to use FeatBit MCP to create the flag and then return the created flag details.
 
-Example instruction:
-
-```text
-Use FeatBit MCP to create a boolean feature flag for the new checkout flow.
-Project: <project>
-Environment: <environment>
-Flag key: new-checkout-flow
-Default off variation: false
-Default on variation: true
-Owner: checkout team
-Purpose: control exposure of the new checkout flow before full rollout.
-Cleanup expectation: review 30 days after rollout reaches 100%.
-Before creating it, check whether a flag with this key already exists.
-After creation, return the FeatBit flag details.
-```
-
-Add screenshots here to show:
-
-- The agent receiving the MCP-based instruction.
-- The MCP tool call or action used by the agent.
-- The created feature flag in FeatBit.
-
-### Review the result
-
-After the MCP tool creates the flag, verify:
-
-- The flag was created in the intended project and environment.
-- The key was not already used by another feature flag.
-- The defaults and variations match the release behavior.
-- The owner, purpose, tags, and cleanup expectation are documented.
-- The agent can reference the created flag when implementing the feature flag in code.
-
-## Common mistakes to avoid
-
-- Using a personal token from a user who cannot create feature flags in the target project or environment.
-- Using an access token that is not scoped to the target project, environment, or feature flag resources.
-- Creating the flag in the wrong project or environment.
-- Reusing one flag for multiple unrelated decisions.
-- Adding a temporary release flag for a permanent entitlement rule.
-- Creating a flag without owner, purpose, or cleanup expectation context.
-- Creating a flag in FeatBit but not documenting how it should be used in code.
