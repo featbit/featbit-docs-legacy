@@ -1,7 +1,7 @@
 {
   "define-flag-types": "Define flag types",
   "set-cleanup-expectations": "Set cleanup expectations",
-  "create-flags-with-agent-guidance": "Create flags with agent guidance",
+  "create-flags-with-agent-guidance": "Create feature flags with coding agents",
   "implement-feature-flags": "Implement feature flags",
   "control-exposure-and-release-decisions": "Control exposure and release decisions",
   "monitor-release-health": "Monitor release health",
