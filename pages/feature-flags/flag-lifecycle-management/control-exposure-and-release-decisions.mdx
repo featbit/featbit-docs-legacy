@@ -1,8 +1,10 @@
-# Control exposure and release decisions
+# Control exposure, release decisions, and learning
 
 ## Overview
 
 Exposure is a release decision, not just a deployment side effect. FeatBit lets teams control who sees a change and how quickly exposure expands.
+
+A completed release or experiment should also produce reusable learning. Without that step, the next iteration starts from memory and opinion instead of evidence.
 
 ## What to define
 
@@ -12,6 +14,17 @@ Exposure is a release decision, not just a deployment side effect. FeatBit lets 
 - Metrics or guardrails that justify continuing, pausing, rolling back, or iterating.
 - The owner responsible for making the next decision.
 
+## What to capture
+
+- What changed.
+- Which flag controlled the change.
+- Who was exposed.
+- What metric or operational signal was used to judge the release.
+- Whether the team continued, paused, rolled back, or iterated.
+- What should happen to the flag now.
+
 ## Agent role
 
 A coding agent can help connect the code change with the FeatBit flag contract, summarize the intended rollout, and remind reviewers what decision criteria apply before exposure expands.
+
+After the decision, the agent can turn release evidence, experiment results, pull request context, and FeatBit history into a concise release summary for the next iteration.
