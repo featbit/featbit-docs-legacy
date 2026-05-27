@@ -6,7 +6,5 @@
   "monitor-release-health": "Monitor release health",
   "control-exposure-and-release-decisions": "Control exposure, release decisions, and learning",
   "detect-stale-feature-flags": "Detect stale feature flags",
-  "clean-up-feature-flags-with-coding-agents": "Clean up feature flags with coding agents",
-  "manage-flag-references-with-coding-agents": "Manage flag references with coding agents",
-  "review-flag-audit-history": "Review flag audit history"
+  "clean-up-feature-flags-with-coding-agents": "Clean up feature flags with coding agents"
 }

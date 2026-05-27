@@ -2,17 +2,22 @@
 
 ## Overview
 
-A stale feature flag is a flag that no longer serves an active release, experiment, operational control, migration, configuration, or business rule. Stale flags increase code complexity and make future releases harder to review.
+After you have already [set cleanup expectations](/feature-flags/flag-lifecycle-management/set-cleanup-expectations), stale flag detection should be handled by a reusable coding-agent skill. The agent only needs to read your cleanup rules, query FeatBit through [FeatBit CLI](/feature-flags/flag-lifecycle-management/create-flags-with-agent-guidance#use-featbit-cli) or [FeatBit MCP](/feature-flags/flag-lifecycle-management/create-flags-with-agent-guidance#use-featbit-mcp), search the repository for flag usage, and return a short cleanup review.
 
-## Signals
+## Write a stale flag review skill
 
-- The flag serves only one variation.
-- The feature has reached full rollout.
-- The experiment decision has already been made.
-- The flag has not been requested recently.
-- The owner or purpose is unclear.
-- The code path behind the flag no longer maps to an active requirement.
+By this point, the hard parts are already in place:
 
-## Agent role
+- Cleanup rules define when different flag types should be reviewed or removed.
+- FeatBit CLI or FeatBit MCP lets the agent interact with FeatBit APIs and fetch project feature flag data.
+- The remaining work is to encode your stale-flag detection logic into a small coding-agent skill, such as `.agents/feature-flag/skill.md`, `AGENTS.md`, or another project rule file.
 
-The coding agent can combine repository search with FeatBit flag state to identify flags that should be reviewed for cleanup.
+That skill should tell the agent to:
+
+- Fetch FeatBit flag state, including rollout state, tags, audit history, archive state, and experiment state.
+- Search the repository for each flag key and related registry entry.
+- Compare FeatBit state and repository usage against your cleanup expectations.
+- Classify each candidate as `remove`, `retain`, or `needs-owner-decision`.
+- Never archive a FeatBit flag until the deployed code no longer evaluates it.
+
+The full pattern is already demonstrated in the [stale flag review example](/feature-flags/flag-lifecycle-management/set-cleanup-expectations#stale-flag-review-example), where a coding agent uses project rules, repository references, and FeatBit state to list stale feature flags.
