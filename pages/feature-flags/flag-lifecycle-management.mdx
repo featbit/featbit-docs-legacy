@@ -6,7 +6,7 @@ import { Callout } from 'nextra/components'
 
 Modern coding agents such as Codex, Claude Code, and GitHub Copilot are becoming part of everyday software development. FeatBit's position is that feature flag lifecycle management should use these coding agents as active collaborators, not only as code completion tools.
 
-A feature flag lifecycle is more than creating a flag and deleting it later. It should connect the flag's purpose, expected lifetime, release evidence, code references, audit history, and cleanup plan. Coding agents can help teams keep that lifecycle visible inside the codebase and connect it with FeatBit data.
+A feature flag lifecycle is more than creating a flag and deleting it later. It should connect the flag's purpose, expected lifetime, release evidence, audit history, and cleanup plan. Coding agents can help teams keep that lifecycle visible through AI rules, agent skills, and FeatBit data from CLI or MCP.
 
 Agent-assisted flag lifecycle management has three foundations:
 
@@ -19,6 +19,8 @@ This gives the team a clear contract: every flag has a purpose, an owner, a revi
 <Callout type="info">
   This page is the lifecycle map. Each step links to a dedicated page where the practice can be expanded with examples, CLI usage, coding-agent prompts, and review checklists.
 </Callout>
+
+![FeatBit feature flag lifecycle workflow](../feature-flags/assets/flag-lifecycle-management/flag-lifecycle-workflow.png)
 
 ## Lifecycle steps
 
@@ -79,9 +81,9 @@ The best implementation depends on the team's development environment, but the r
 
 - The coding agent your team already uses, such as Codex, Claude Code, or GitHub Copilot.
 - Project-level agent skills or repository instructions that encode your flag naming, ownership, cleanup, and review rules.
-- FeatBit CLI, so the coding agent can retrieve feature flag details, audit history, rollout state, and experiment context directly from FeatBit.
+- FeatBit CLI or FeatBit MCP, so the coding agent can retrieve feature flag details, audit history, rollout state, and experiment context directly from FeatBit.
 
-With these pieces in place, the coding agent can work from both sides of the lifecycle: it can inspect code references in the repository and inspect flag state in FeatBit.
+With these pieces in place, the coding agent can apply the same lifecycle rules every time it creates, implements, monitors, reviews, or cleans up a FeatBit flag.
 
 ## Related FeatBit pages
 
