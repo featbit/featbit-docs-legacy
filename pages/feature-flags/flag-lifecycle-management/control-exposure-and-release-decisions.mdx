@@ -2,29 +2,36 @@
 
 ## Overview
 
-Exposure is a release decision, not just a deployment side effect. FeatBit lets teams control who sees a change and how quickly exposure expands.
+After a feature is implemented and its early release health is stable, the next lifecycle step is to use a controlled experiment to decide whether the new version should be expanded, paused, rolled back, or used as evidence for the next investment direction. This matters because a feature flag controls who sees each version, while an experiment measures what changed because of that exposure. Treating them as one release decision object turns rollout from opinion-driven approval into evidence-based learning. For more background, see [Industrial A/B Testing in 2026: Bayesian Methods, CUPED, and Lessons from Meta and Statsig](https://www.featbit.co/blogs/industrial-ab-testing-2026-bayesian-methods-cuped).
 
-A completed release or experiment should also produce reusable learning. Without that step, the next iteration starts from memory and opinion instead of evidence.
+## What this step does and why it matters
 
-## What to define
+This step turns a flagged release into a decision loop:
 
-- The initial audience.
-- Protected users or tenants that should be excluded.
-- Rollout percentage and expansion criteria.
-- Metrics or guardrails that justify continuing, pausing, rolling back, or iterating.
-- The owner responsible for making the next decision.
+- Define the hypothesis the team wants to test.
+- Choose one primary metric that decides success.
+- Choose guardrail metrics that must not degrade.
+- Define the audience, traffic split, and observation window.
+- Record flag exposure events and metric events with the same user identity.
+- Read the result as an action decision, such as continue, pause, rollback candidate, or inconclusive.
+- Capture what was learned so the next iteration starts from evidence instead of memory.
 
-## What to capture
+This is important because most product ideas are uncertain before they meet real users. A controlled experiment compares the current version and the candidate version under the same traffic conditions, so the team can separate actual user impact from release timing, anecdotes, and reviewer preference. It also protects the team from over-reading dashboards: one primary metric keeps the decision focused, guardrails catch unacceptable harm, and a clear decision category tells the team what to do next.
 
-- What changed.
-- Which flag controlled the change.
-- Who was exposed.
-- What metric or operational signal was used to judge the release.
-- Whether the team continued, paused, rolled back, or iterated.
-- What should happen to the flag now.
+## How FeatBit supports it
 
-## Agent role
+FeatBit treats the feature flag and the experiment as the same release object: the flag controls who sees each version, and the experiment measures whether the observed effect is strong enough to ship, pause, roll back, or keep learning.
 
-A coding agent can help connect the code change with the FeatBit flag contract, summarize the intended rollout, and remind reviewers what decision criteria apply before exposure expands.
+![Bayesian A/B testing uses posterior probability, harm risk, and a practical threshold to support release decisions](../assets/flag-lifecycle-management/control-exposure-and-release-decisions/bayesian-ab-testing-decision-optimized.png)
 
-After the decision, the agent can turn release evidence, experiment results, pull request context, and FeatBit history into a concise release summary for the next iteration.
+The AI-agentic workflow starts from the `featbit-release-decision` skill. It routes the team through the full loop instead of treating A/B testing as a dashboard-only task:
+
+`intent -> hypothesis -> implementation -> exposure -> measurement -> interpretation -> decision -> learning -> next intent`
+
+Core capabilities include hypothesis design, reversible exposure control, primary metric and guardrail design, experiment run management, Bayesian A/B analysis, bandit-style optimization, decision framing, and learning capture. The result is a professional experimentation workflow that product managers, engineers, and growth teams can use without acting as full-time data scientists.
+
+![Bayesian prior chaining turns pilot, main, and holdout runs into a continuous experimentation loop](../assets/flag-lifecycle-management/control-exposure-and-release-decisions/bayesian-multi-run-prior-chaining.png)
+
+Teams can use FeatBit-managed event collection, or a data warehouse-native mode that reads variant statistics from the company's own warehouse, metric layer, and data pipeline.
+
+The open-source experimentation implementation and skills catalog are available at [featbit/featbit-release-decision-agent](https://github.com/featbit/featbit-release-decision-agent).
