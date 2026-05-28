@@ -69,6 +69,42 @@
     <lastmod>2024-04-13T14:43:12+00:00</lastmod>
   </url>
   <url>
+    <loc>https://docs.featbit.co/feature-flags/flag-lifecycle-management</loc>
+    <lastmod>2026-05-28T06:55:30+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://docs.featbit.co/feature-flags/flag-lifecycle-management/clean-up-feature-flags-with-coding-agents</loc>
+    <lastmod>2026-05-28T06:55:30+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://docs.featbit.co/feature-flags/flag-lifecycle-management/control-exposure-and-release-decisions</loc>
+    <lastmod>2026-05-28T08:57:06+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://docs.featbit.co/feature-flags/flag-lifecycle-management/create-flags-with-agent-guidance</loc>
+    <lastmod>2026-05-28T09:14:03+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://docs.featbit.co/feature-flags/flag-lifecycle-management/define-flag-types</loc>
+    <lastmod>2026-05-23T12:45:25+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://docs.featbit.co/feature-flags/flag-lifecycle-management/detect-stale-feature-flags</loc>
+    <lastmod>2026-05-27T16:36:04+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://docs.featbit.co/feature-flags/flag-lifecycle-management/implement-feature-flags</loc>
+    <lastmod>2026-05-27T05:36:43+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://docs.featbit.co/feature-flags/flag-lifecycle-management/monitor-release-health</loc>
+    <lastmod>2026-05-28T09:14:03+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://docs.featbit.co/feature-flags/flag-lifecycle-management/set-cleanup-expectations</loc>
+    <lastmod>2026-05-25T13:37:21+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://docs.featbit.co/feature-flags/organizing-flags/archiving-and-deleting</loc>
     <lastmod>2023-11-16T09:39:44+00:00</lastmod>
   </url>
@@ -317,4 +353,3 @@
     <lastmod>2026-01-01T12:54:45+00:00</lastmod>
   </url>
 </urlset>
-

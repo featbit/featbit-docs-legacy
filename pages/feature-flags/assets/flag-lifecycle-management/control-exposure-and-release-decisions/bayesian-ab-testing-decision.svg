@@ -1,0 +1,127 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Bayesian A/B testing release decision</title>
+  <desc id="desc">A Bayesian posterior distribution over relative effect, with harm, observe, and ship candidate regions separated by zero effect and a practical decision threshold.</desc>
+
+  <defs>
+    <pattern id="dotGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.25" fill="#DDE8F2"/>
+    </pattern>
+    <linearGradient id="abGradient" x1="490" y1="0" x2="640" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2F7DF6"/>
+      <stop offset="1" stop-color="#33BBC8"/>
+    </linearGradient>
+    <linearGradient id="posteriorFill" x1="110" y1="290" x2="1480" y2="740" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F05A43" stop-opacity="0.22"/>
+      <stop offset="0.40" stop-color="#DCEAFF" stop-opacity="0.78"/>
+      <stop offset="0.66" stop-color="#DCEAFF" stop-opacity="0.78"/>
+      <stop offset="1" stop-color="#1AB883" stop-opacity="0.30"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-25%" width="130%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#17324D" flood-opacity="0.12"/>
+    </filter>
+    <marker id="axisArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0L10 5L0 10Z" fill="#8796A7"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#FBFDFF"/>
+  <rect width="1600" height="900" fill="url(#dotGrid)" opacity="0.9"/>
+
+  <!-- Header -->
+  <text x="88" y="154" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="64" font-weight="800" fill="#111E3A">Bayesian</text>
+  <text x="486" y="154" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="64" font-weight="800" fill="url(#abGradient)">A/B</text>
+  <text x="646" y="154" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="64" font-weight="800" fill="#111E3A">Testing</text>
+  <text x="92" y="224" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" fill="#63748D">Quantify uncertainty. Compare effect size with risk. Make a release decision.</text>
+
+  <!-- Top-right badges -->
+  <g filter="url(#shadow)">
+    <rect x="1230" y="72" width="150" height="154" rx="22" fill="#FFFFFF" stroke="#D8E4EF"/>
+    <rect x="1264" y="108" width="78" height="46" rx="23" fill="#2F7DF6"/>
+    <circle cx="1318" cy="131" r="21" fill="#FFFFFF"/>
+    <text x="1305" y="197" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" fill="#111E3A">feature flag</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1410" y="72" width="120" height="154" rx="22" fill="#FFFFFF" stroke="#D8E4EF"/>
+    <rect x="1438" y="104" width="64" height="62" rx="9" fill="#FFFFFF" stroke="#D8E4EF"/>
+    <path d="M1451 148H1490" stroke="#D8E4EF" stroke-width="2"/>
+    <path d="M1456 138V150" stroke="#84CDAE" stroke-width="6"/>
+    <path d="M1470 128V150" stroke="#84CDAE" stroke-width="6"/>
+    <path d="M1484 114V150" stroke="#84CDAE" stroke-width="6"/>
+    <path d="M1498 102V150" stroke="#84CDAE" stroke-width="6"/>
+    <text x="1470" y="197" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" fill="#111E3A">CUPED</text>
+  </g>
+
+  <!-- Axis and posterior -->
+  <path d="M96 728H1512" stroke="#263C5C" stroke-width="3" marker-end="url(#axisArrow)"/>
+  <text x="800" y="858" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#263C5C">relative effect (delta)</text>
+
+  <path d="M96 728C190 728 282 722 356 690C430 658 488 590 548 510C618 416 701 318 810 278C902 244 1002 268 1078 336C1154 404 1194 520 1258 616C1316 704 1406 727 1512 728L1512 728H96Z" fill="url(#posteriorFill)"/>
+  <path d="M96 728C190 728 282 722 356 690C430 658 488 590 548 510C618 416 701 318 810 278C902 244 1002 268 1078 336C1154 404 1194 520 1258 616C1316 704 1406 727 1512 728" stroke="#5B7EF2" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M1014 286C1038 299 1058 315 1078 336C1154 404 1194 520 1258 616C1316 704 1406 727 1512 728" stroke="#6CB58A" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Zero marker -->
+  <line x1="780" y1="632" x2="780" y2="728" stroke="#A9B5C5" stroke-width="2"/>
+  <circle cx="780" cy="728" r="7" fill="#263C5C"/>
+  <text x="780" y="766" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" fill="#263C5C">0</text>
+  <rect x="714" y="790" width="132" height="38" rx="12" fill="#FFFFFF" stroke="#D8E4EF"/>
+  <text x="780" y="816" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" fill="#687B94">no effect</text>
+
+  <!-- Practical threshold marker -->
+  <line x1="988" y1="292" x2="988" y2="728" stroke="#263C5C" stroke-width="2.6" stroke-dasharray="13 13"/>
+  <circle cx="988" cy="292" r="5" fill="#263C5C"/>
+  <circle cx="988" cy="728" r="5" fill="#263C5C"/>
+  <text x="988" y="766" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" fill="#687B94">0.04</text>
+  <text x="988" y="262" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#111E3A">practical threshold</text>
+
+  <!-- Axis ticks -->
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" fill="#263C5C">
+    <line x1="238" y1="728" x2="238" y2="742" stroke="#263C5C" stroke-width="2"/>
+    <line x1="498" y1="728" x2="498" y2="742" stroke="#263C5C" stroke-width="2"/>
+    <line x1="1104" y1="728" x2="1104" y2="742" stroke="#263C5C" stroke-width="2"/>
+    <line x1="1340" y1="728" x2="1340" y2="742" stroke="#263C5C" stroke-width="2"/>
+    <text x="238" y="766" text-anchor="middle">-0.10</text>
+    <text x="498" y="766" text-anchor="middle">-0.05</text>
+    <text x="1104" y="766" text-anchor="middle">0.05</text>
+    <text x="1340" y="766" text-anchor="middle">0.10</text>
+  </g>
+
+  <!-- Harm callout -->
+  <g filter="url(#shadow)">
+    <rect x="130" y="532" width="310" height="96" rx="16" fill="#FFFFFF" stroke="#FF8A78"/>
+    <path d="M176 596L207 544L238 596H176Z" stroke="#D15F4D" stroke-width="3" fill="#FFF5F2"/>
+    <line x1="207" y1="562" x2="207" y2="580" stroke="#D15F4D" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="207" cy="589" r="3" fill="#D15F4D"/>
+    <text x="258" y="576" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#C94F3D">harm risk</text>
+    <text x="258" y="610" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" fill="#C94F3D">P(delta &lt; 0) = 4%</text>
+  </g>
+  <path d="M440 582L518 658" stroke="#D15F4D" stroke-width="2.4"/>
+  <circle cx="518" cy="658" r="5.5" fill="#D15F4D"/>
+
+  <!-- Observe callout -->
+  <g filter="url(#shadow)">
+    <rect x="716" y="430" width="320" height="92" rx="16" fill="#FFFFFF" stroke="#C7D0DE"/>
+    <text x="876" y="465" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#516174">observe region</text>
+    <text x="876" y="499" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" fill="#687B94">P(0 to threshold) = 8%</text>
+  </g>
+  <path d="M876 522L890 650" stroke="#A5B0C0" stroke-width="2.4"/>
+  <circle cx="890" cy="650" r="5.5" fill="#A5B0C0"/>
+
+  <!-- Decision rule callout -->
+  <g filter="url(#shadow)">
+    <rect x="1180" y="370" width="330" height="116" rx="16" fill="#FFFFFF" stroke="#D8E4EF"/>
+    <text x="1214" y="410" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#5B7EF2">Decision rule</text>
+    <text x="1214" y="445" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" fill="#687B94">Ship only when lift is likely,</text>
+    <text x="1214" y="474" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" fill="#687B94">harm is low, and guardrails hold.</text>
+  </g>
+
+  <!-- Ship callout -->
+  <g filter="url(#shadow)">
+    <rect x="1192" y="548" width="330" height="104" rx="16" fill="#FFFFFF" stroke="#82C99D"/>
+    <circle cx="1238" cy="600" r="22" fill="#F3FFF8" stroke="#6CB58A" stroke-width="3"/>
+    <path d="M1226 598L1236 608L1252 588" stroke="#6CB58A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1282" y="590" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#5E9C74">ship candidate</text>
+    <text x="1282" y="625" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" fill="#5E9C74">P(delta &gt; threshold) = 88%</text>
+  </g>
+  <path d="M1192 620L1140 660" stroke="#6CB58A" stroke-width="2.4"/>
+  <circle cx="1140" cy="660" r="5.5" fill="#6CB58A"/>
+</svg>
