@@ -20,7 +20,7 @@ FeatBit CLI and FeatBit MCP can both use FeatBit tokens, but personal tokens and
 
 When configuring an access token with customized resources, include the feature flag resource path for the target project and environment, such as:
 
-![](../assets/create-flags-with-agent-guidance/edit-permission.png)
+![](../assets/flag-lifecycle-management/create-flags-with-agent-guidance/edit-permission.png)
 
 ```text
 project/<project-key>:env/<environment-key>:flag/*
@@ -52,7 +52,7 @@ Default on variation: true
 
 The following example shows Codex receiving the instruction and completing the CLI-based creation flow on the right, with the created feature flag shown in FeatBit on the left.
 
-![](../assets/create-flags-with-agent-guidance/codex-cli.png)
+![](../assets/flag-lifecycle-management/create-flags-with-agent-guidance/codex-cli.png)
 
 
 ## Use FeatBit MCP
@@ -62,5 +62,4 @@ Start by installing and configuring FeatBit MCP. For the latest setup instructio
 After FeatBit MCP is configured, the workflow is similar to using FeatBit CLI: describe the flag you need, give the project and environment context, and let the coding agent call FeatBit MCP.
 
 As with the CLI workflow, FeatBit recommends keeping a small project-level skill or reference, such as `.agents/feature-flag/skill.md` or `references/featbit-mcp.md`, so the team uses the same project keys, environment keys, naming rules, duplicate-check rule, and required lifecycle fields every time.
-
 
