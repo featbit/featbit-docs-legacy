@@ -4,7 +4,9 @@
 
 In the version 5.2.0, we fixed a bug that allowed users without the **canAccessEnv** permission to read data from environments. 
 If you are using FeatBit-managed policies (**Owner**, **Administrator**, or **Developer**), no action is required. If you are using custom policies, 
-ask your owner to grant the **canAccessEnv** permission for the relevant environments.
+ask your owner to grant the following permissions:
+- **CanAccessEnv** permission for the relevant environments.
+- **CanAccessProject** permission for the relevant projects.
 
 ![](./assets/faq/canaccessenv.png)
 
