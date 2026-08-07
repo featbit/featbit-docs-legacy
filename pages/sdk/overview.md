@@ -77,6 +77,10 @@ We provide a [Python SDK](https://github.com/featbit/featbit-python-sdk). The SD
 
 We provide a [Go SDK](https://github.com/featbit/featbit-go-sdk). The SDK's GitHub repository contains a full tutorial on how to use it. It also provides a sample project for you to try out.
 
+### Rust
+
+We provide a [Rust SDK](https://github.com/featbit/featbit-rust-sdk). The SDK's GitHub repository contains a full tutorial on how to use it. It also provides sample projects for you to try out.
+
 ### OpenFeature Providers
 
 #### JavaScript
@@ -102,6 +106,18 @@ The SDK's GitHub repository contains a full tutorial on how to use it. It also p
 We provide a [OpenFeature provider for Java Server SDK](https://github.com/featbit/featbit-openfeature-provider-java-server) for you to use. This SDK can be used in your console APP or Spring Boot APP. 
 
 The SDK's GitHub repository contains a full tutorial on how to use it. It also provides a sample project for you to try out.
+
+#### Python
+
+We provide an [OpenFeature provider for the Python server-side SDK](https://github.com/featbit/openfeature-provider-python-server) for integrating FeatBit with OpenFeature in Python applications. 
+
+The SDK's GitHub repository contains a full tutorial on how to use it. It also provides a sample project for you to try out.
+
+#### Rust
+
+We provide an [OpenFeature provider for the Rust server-side SDK](https://github.com/featbit/openfeature-provider-rust-server) for integrating FeatBit with OpenFeature in Rust applications. 
+
+The SDK's GitHub repository contains a full tutorial on how to use it. It also provides a sample project for you to try out. sample projects for you to try out.
 
 ## REST APIs & WebSocket
 
