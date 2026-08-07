@@ -117,7 +117,7 @@ The SDK's GitHub repository contains a full tutorial on how to use it. It also p
 
 We provide an [OpenFeature provider for the Rust server-side SDK](https://github.com/featbit/openfeature-provider-rust-server) for integrating FeatBit with OpenFeature in Rust applications. 
 
-The SDK's GitHub repository contains a full tutorial on how to use it. It also provides a sample project for you to try out. sample projects for you to try out.
+The SDK's GitHub repository contains a full tutorial on how to use it. It also provides a sample project for you to try out.
 
 ## REST APIs & WebSocket
 
