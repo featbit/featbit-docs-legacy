@@ -3,6 +3,7 @@
   "data-analytic": "Data Analytic",
   "chat-apps": "Chat Apps",
   "api-access-tokens": "API Access Token",
+  "terraform-provider": "Terraform Provider & GitOps",
   "single-sign-on": "Single Sign-On",
   "webhooks": "Webhooks"
 }
