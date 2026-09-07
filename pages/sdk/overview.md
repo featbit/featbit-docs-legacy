@@ -119,6 +119,12 @@ We provide an [OpenFeature provider for the Python server-side SDK](https://gith
 
 The SDK's GitHub repository contains a full tutorial on how to use it. It also provides a sample project for you to try out.
 
+#### Ruby
+
+We provide an [OpenFeature provider for the Ruby server-side SDK](https://github.com/featbit/openfeature-provider-ruby-server) for integrating FeatBit with OpenFeature in Ruby applications.
+
+The provider's GitHub repository contains a full tutorial on how to use it. It also provides a console example for you to try out.
+
 #### Rust
 
 We provide an [OpenFeature provider for the Rust server-side SDK](https://github.com/featbit/openfeature-provider-rust-server) for integrating FeatBit with OpenFeature in Rust applications. 
