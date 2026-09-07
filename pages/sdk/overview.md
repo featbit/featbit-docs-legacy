@@ -73,6 +73,12 @@ The SDK's GitHub repository contains a full tutorial on how to use it. It also p
 
 We provide a [Python SDK](https://github.com/featbit/featbit-python-sdk). The SDK's GitHub repository contains a full tutorial on how to use it. It also provides a sample project for you to try out.
 
+### Ruby
+
+We provide a [server-side Ruby SDK](https://github.com/featbit/featbit-ruby-server-sdk) for use in Rails applications, background workers, and command-line applications.
+
+The SDK's GitHub repository contains a full tutorial on how to use it. It also provides console and Rails examples for you to try out.
+
 ### Go
 
 We provide a [Go SDK](https://github.com/featbit/featbit-go-sdk). The SDK's GitHub repository contains a full tutorial on how to use it. It also provides a sample project for you to try out.
